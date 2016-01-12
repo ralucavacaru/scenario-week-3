@@ -6,6 +6,12 @@
 		<script src="jsPlumb-2.0.5-min.js"></script>
 		<script>
 			$(function() {
+				$( "#new" ).click(function() {
+  					$( "#container div" ).remove();
+  					$( "#container img" ).remove();
+  					$( "#container svg" ).remove();
+				})
+
 				function guid() {
 				  	function s4() {
 				    	return Math.floor((1 + Math.random()) * 0x10000)
@@ -16,12 +22,12 @@
 				}
 
 			    $('.element img').draggable({
-			    	appendTo: 'body',
+			    	appendTo: '#container',
 				    helper: function (e, ui) {
 				        return $(this).clone();
 				    },
 				});
-				$("body").droppable({
+				$("#container").droppable({
         			drop: function (event, ui) {
         				if (! $(ui.draggable).hasClass("unic")) {
         					var elem = $(ui.draggable).clone();
@@ -35,16 +41,16 @@
 				              	maxConnections: 5,
 				              	endpoint:"Dot",
 				              	paintStyle: {
-				              		fillStyle: "#7B8D8E",
-				              		outlineColor: "#7B8D8E",
+				              		fillStyle: "black",
+				              		outlineColor: "black",
 				              		outlineWidth: 1,
 				              		radius: 5
 				              	},
 				              	hoverPaintStyle: {
-				              		fillStyle:"#7B8D8E" 
+				              		fillStyle:"black" 
 				              	},
 				              	connectorStyle: { 
-				              		strokeStyle:"#7B8D8E",
+				              		strokeStyle:"black",
 				              		lineWidth:2
 				              	},
 				            };
@@ -70,9 +76,9 @@
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body id="container">
+	<body>
 		<nav class="header">
-			<div class="button">
+			<div class="button" id="new">
 				New
 			</div>
 			<div class="button">
@@ -82,6 +88,8 @@
 				Run
 			</div>
 		</nav>
+
+		<div id="container"> </div>
 
 		<div class="components">
 			<div class="element">
