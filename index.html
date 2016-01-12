@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="jquery-ui.min.css">
+		<script src="external/jquery/jquery.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script>
+			$(function() {
+			    $('.element img').draggable({
+			    	appendTo: 'body',
+				    helper: function (e, ui) {
+				        return $(this).clone();
+				    },
+				});
+				$("body").droppable({
+        			drop: function (event, ui) {
+        				if (! $(ui.draggable).hasClass("unic")) {
+            				$(ui.draggable).clone().addClass("unic").css(ui.offset).css({position:"absolute"}).appendTo(this).draggable();
+			        	}
+			        }
+			    });
+			});
+		</script>
+		<link rel="stylesheet" type="text/css" href="index.css">
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+	</head>
+
+	<body>
+		<nav class="header">
+			<div class="button">
+				New
+			</div>
+			<div class="button">
+				Save
+			</div>
+			<div class="button" id="run">
+				Run
+			</div>
+		</nav>
+
+		<div class="components">
+			<div class="element">
+				Resistor
+				<img src="img/resistor.png" id="resistor">
+			</div>
+			<div class="element">
+				Switch
+				<img src="img/switch.png" id="switch">
+			</div>
+			<div class="element">
+				Cell
+				<img src="img/cell.png" id="cell">
+			</div>
+			<div class="element">
+				Led
+				<img src="img/led.png" id="led">
+			</div>
+			<div class="element">
+				Voltmeter
+				<img src="img/voltmeter.png" id="voltmeter">
+			</div>
+			<div class="element">
+				Ammeter
+				<img src="img/ammeter.png" id="ammeter">
+			</div>
+		</div>
+	</body>
+</html>
