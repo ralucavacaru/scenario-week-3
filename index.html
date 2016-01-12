@@ -3,8 +3,18 @@
 		<link rel="stylesheet" href="jquery-ui.min.css">
 		<script src="external/jquery/jquery.js"></script>
 		<script src="jquery-ui.min.js"></script>
+		<script src="jsPlumb-2.0.5-min.js"></script>
 		<script>
 			$(function() {
+				function guid() {
+				  	function s4() {
+				    	return Math.floor((1 + Math.random()) * 0x10000)
+				      		.toString(16)
+				      		.substring(1);
+				  	}
+				  	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+				}
+
 			    $('.element img').draggable({
 			    	appendTo: 'body',
 				    helper: function (e, ui) {
@@ -14,7 +24,43 @@
 				$("body").droppable({
         			drop: function (event, ui) {
         				if (! $(ui.draggable).hasClass("unic")) {
-            				$(ui.draggable).clone().addClass("unic").css(ui.offset).css({position:"absolute"}).appendTo(this).draggable();
+        					var elem = $(ui.draggable).clone();
+            				elem.attr("id", elem.attr("id") + "--" + guid()).addClass("unic").css(ui.offset).css({position:"absolute"}).appendTo(this);
+				            jsPlumb.setContainer("container");
+				            jsPlumb.draggable(elem);
+				            var common = {
+				              	isSource: true,
+				              	isTarget: true,
+				              	connector: ["Straight"],
+				              	maxConnections: 5,
+				              	endpoint:"Dot",
+				              	paintStyle: {
+				              		fillStyle: "#7B8D8E",
+				              		outlineColor: "#7B8D8E",
+				              		outlineWidth: 1,
+				              		radius: 5
+				              	},
+				              	hoverPaintStyle: {
+				              		fillStyle:"#7B8D8E" 
+				              	},
+				              	connectorStyle: { 
+				              		strokeStyle:"#7B8D8E",
+				              		lineWidth:2
+				              	},
+				            };
+				            
+				            jsPlumb.addEndpoint(elem, { 
+				              	anchor:"Left"
+				            }, common);
+
+				            jsPlumb.addEndpoint(elem, { 
+				              	anchor:"Right" 
+				            }, common);
+
+				            elem.dblclick(function(){ 
+							    jsPlumb.remove(elem);
+							});
+				            // console.log(jsPlumb.getConnections());
 			        	}
 			        }
 			    });
@@ -24,7 +70,7 @@
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 	</head>
 
-	<body>
+	<body id="container">
 		<nav class="header">
 			<div class="button">
 				New
