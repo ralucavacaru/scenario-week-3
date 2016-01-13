@@ -121,8 +121,15 @@ html {
 }
 
 .savedItem:hover {
-	color: #44B3C2;
-	font-weight: bolder;
+	background-color: #44B3C2;
+}
+
+.savedItem:last-of-type:hover {
+	border-radius: 0 0 3px 3px;
+}
+
+.savedItem:first-of-type:hover {
+	border-radius: 3px 3px 0 0;
 }
 
 .black_overlay{
