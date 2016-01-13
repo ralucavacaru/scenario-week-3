@@ -83,9 +83,11 @@
 			<div class="button" id="new">
 				New
 			</div>
-			<div class="button">
-				Save
-			</div>
+			<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='block';document.getElementById('fade').style.display='block'">	
+				<div class="button">
+					Save
+				</div>
+			</a>
 			<div class="button" id="saved">
 				Circuits
 				<div id="sidebar"> 
@@ -123,7 +125,18 @@
 			<b>Voltage:</b> </br>
 			<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">x</a>
 		</div>
-        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><div id="fade" class="black_overlay"></div></a>
+        <div id="fade" class="black_overlay"></div>
+
+        <!-- Save pop-up -->
+		<div id="light2" class="white_content">
+			<h1>Save circuit</h1>
+			<form>	
+				<b>Name:</b> <input type="text" name="FirstName"></br>
+				<input type="submit" value="Save" class="submitButton">
+			</form>
+			<a href = "javascript:void(0)" onclick = "document.getElementById('light2').style.display='none';document.getElementById('fade').style.display='none'">x</a>
+		</div>
+        <div id="fade" class="black_overlay"></div>
 
         <!-- Canvas  -->
 		<div id="container"> </div>
