@@ -84,10 +84,44 @@
 			<div class="button">
 				Save
 			</div>
-			<div class="button" id="run">
-				Run
+			<div class="button" id="saved">
+				Circuits
+				<div id="sidebar"> 
+					<div id="wrapper">
+						<div class="savedItem">
+							Saved Circuit 1
+						</div>
+						<div class="savedItem">
+							Saved Circuit 2
+						</div>
+						<div class="savedItem">
+							Saved Circuit 3
+						</div>
+						<div class="savedItem">
+							Saved Circuit 4
+						</div>
+						<div class="savedItem">
+							Saved Circuit 5
+						</div>
+					</div>
+				</div>
 			</div>
+			<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">	
+				<div class="button" id="run">
+					Run
+				</div>
+			</a>
 		</nav>
+
+		<!-- Results pop-up -->
+		<div id="light" class="white_content">
+			<h1>Results</h1>
+			<b>Resistance:</b> </br>
+			<b>Current:</b> </br>
+			<b>Voltage:</b> </br>
+			<a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">x</a>
+		</div>
+        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><div id="fade" class="black_overlay"></div></a>
 
 		<div id="container"> </div>
 
