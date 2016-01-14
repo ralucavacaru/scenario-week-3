@@ -209,7 +209,6 @@ html {
 	border: 1px solid #7B8D8E;
 	border-radius: 3px;
 }
-
 .inputValue input {
 	width: 2em;
 	background-color: rgba(0, 0, 0, 0);
@@ -218,6 +217,9 @@ html {
 	font-size: 12px;
 	font-weight: bold;
 	color: #7B8D8E;
+}
+input:focus {
+    outline-color: #44B3C2;
 }
 
 .onoffswitch {
