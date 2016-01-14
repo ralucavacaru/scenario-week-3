@@ -6,6 +6,10 @@
 		<script src="jsPlumb-2.0.5-min.js"></script>
 		<script>
 			$(function() {
+				$('.tip').dblclick(function(){ 
+					$('.tip').hide();
+				});
+
 				$( "#new" ).click(function() {
   					$( "#container div" ).remove();
   					$( "#container .drag" ).remove();
@@ -189,6 +193,12 @@
 				Ammeter
 				<img src="img/ammeter.png" id="ammeter" class="drag">
 			</div>
+		</div>
+
+		<!-- Tip box -->
+		<div class="tip">
+			<img src="img/tip.png">
+			<p>Double click on an element to delete it from the canvas.</p>
 		</div>
 	</body>
 </html>

@@ -262,3 +262,27 @@ input:focus {
 .show {
 	display: none;
 }
+
+.tip {
+	position: absolute;
+	width: 150px;
+	height: 45px;
+	right: 5px;
+	bottom: 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 8px;
+	border-radius: 5px;
+}
+.tip img {
+	margin-top: 7.5px;
+	width: 30px;
+	display: inline-block;
+}
+.tip p {
+	width: 110px;
+	display: inline-block;
+	font-size: 12px;
+	color: white;
+	margin: 0;
+	float: right;
+}
