@@ -58,6 +58,7 @@ html {
 	width: 85px;
 	left: 5px;
 	text-align: center;
+	color: black;
 	background-color: rgba(255, 255, 255, 0.5);
 	border-radius: 3px;
 	text-transform: uppercase;
@@ -106,7 +107,7 @@ html {
 	margin-top: 10px;
 	width: 150px;
 	min-height: 40px;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: rgba(0, 0, 0, 0.8);
 	border-radius: 3px;
 }
 
@@ -192,4 +193,70 @@ html {
 	left: calc(50% - 40px);
 	background-color: #E45641;
 	border: none;
+}
+
+.inputValue {
+	position: relative;
+	width: 40px;
+	margin: 0;
+	top: 3px;
+	left: calc(50% - 24px);
+	text-align: center;
+	font-weight: normal;
+	font-size: 12px;
+	color: #7B8D8E;
+	padding: 3px;
+	border: 1px solid #7B8D8E;
+	border-radius: 3px;
+}
+
+.inputValue input {
+	width: 2em;
+	background-color: rgba(0, 0, 0, 0);
+	border: none;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	color: #7B8D8E;
+}
+
+.onoffswitch {
+    position: relative; 
+    width: 40px;
+    left: 15px;
+    top: -5px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 10px; padding: 0; line-height: 10px;
+    border: 2px solid #999999; border-radius: 10px;
+    background-color: #7B8D8E;
+    transition: background-color 0.3s ease-in;
+}
+.onoffswitch-label:before {
+    content: "";
+    display: block; width: 10px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 28px;
+    border: 2px solid #999999; border-radius: 10px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label {
+    background-color: #44B3C2;
+}
+
+.onoffswitch-checkbox:checked + .onoffswitch-label, .onoffswitch-checkbox:checked + .onoffswitch-label:before {
+   border-color: #44B3C2;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label:before {
+    right: 0px; 
+}
+
+.show {
+	display: none;
 }

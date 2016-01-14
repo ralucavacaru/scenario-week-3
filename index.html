@@ -8,7 +8,7 @@
 			$(function() {
 				$( "#new" ).click(function() {
   					$( "#container div" ).remove();
-  					$( "#container img" ).remove();
+  					$( "#container .drag" ).remove();
   					$( "#container svg" ).remove();
 				})
 
@@ -21,7 +21,7 @@
 				  	return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 				}
 
-			    $('.element img').draggable({
+			    $('.element .drag').draggable({
 			    	appendTo: '#container',
 				    helper: function (e, ui) {
 				        return $(this).clone();
@@ -34,6 +34,7 @@
             				elem.attr("id", elem.attr("id") + "--" + guid()).addClass("unic").css(ui.offset).css({position:"absolute"}).appendTo(this);
 				            jsPlumb.setContainer("container");
 				            jsPlumb.draggable(elem);
+				            elem.children(".show").show();
 				            var common = {
 				              	isSource: true,
 				              	isTarget: true,
@@ -145,27 +146,48 @@
 		<div class="components">
 			<div class="element">
 				Resistor
-				<img src="img/resistor.png" id="resistor">
+				<div class="drag">	
+					<img src="img/resistor.png" id="resistor">
+					<form class="inputValue show">
+						<input type="text" name="resistor_ohm" value="10">&#8486;
+					</form>
+				</div>
 			</div>
 			<div class="element">
 				Switch
-				<img src="img/switch.png" id="switch">
+				<div class="drag">	
+					<img src="img/switch.png" id="switch">
+					<div class="onoffswitch show">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+					    <label class="onoffswitch-label" for="myonoffswitch"></label>
+					</div>
+				</div>
 			</div>
 			<div class="element">
 				Cell
-				<img src="img/cell.png" id="cell">
+				<div class="drag">	
+					<img src="img/cell.png" id="cell">
+					<form class="inputValue show">
+						<input type="text" name="cell_voltage" value="10">V
+					</form>
+				</div>
 			</div>
 			<div class="element">
 				Led
-				<img src="img/led.png" id="led">
+				<div class="drag">	
+					<img src="img/led.png" id="led">
+					<form class="inputValue show">
+						<input type="text" name="led_ohm" value="10">&#8486;
+					</form>
+				</div>
 			</div>
 			<div class="element">
 				Voltmeter
-				<img src="img/voltmeter.png" id="voltmeter">
+				<img src="img/voltmeter.png" id="voltmeter" class="drag">
 			</div>
 			<div class="element">
 				Ammeter
-				<img src="img/ammeter.png" id="ammeter">
+				<img src="img/ammeter.png" id="ammeter" class="drag">
 			</div>
 		</div>
 	</body>
