@@ -36,9 +36,9 @@
         				if (! $(ui.draggable).hasClass("unic")) {
         					var elem = $(ui.draggable).clone();
             				elem.attr("id", elem.attr("id") + "--" + guid()).addClass("unic").css(ui.offset).css({position:"absolute"}).appendTo(this);
+            				elem.children(".show").show();
 				            jsPlumb.setContainer("container");
 				            jsPlumb.draggable(elem);
-				            elem.children(".show").show();
 				            var common = {
 				              	isSource: true,
 				              	isTarget: true,
